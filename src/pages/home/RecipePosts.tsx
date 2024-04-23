@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 
 function RecipePosts() {
     const cards: string[] = [
@@ -7,17 +8,30 @@ function RecipePosts() {
         'https://cdn.pickuplimes.com/cache/21/18/211886ca12104607a8c71a3bcef87960.jpg'
     ];
 
+    const [opacityTImer, setOpacityTimer] = useState<boolean>(false);
+    const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
-  return (
-    <div className="w-full p-5 gap-10 grid
+    const changeOpactity = async () => {
+        await delay(500);
+        setOpacityTimer(true)
+    };
+
+    useEffect(() => {
+        changeOpactity()
+    }, []);
+
+    return (
+        <div className={`w-full p-5 gap-10 grid
          xl:grid-cols-4
          2xl:grid-cols-6
-         ">
-        {cards?.map((card) => (
-            <img className="rounded-xl transition duration-700 hover:scale-105" src={card}/>
-        ))}
-    </div>
-  )
+         transition-opacity duration-1000
+         ${opacityTImer ? 'opacity-100' : 'opacity-0'}
+         `}>
+            {cards?.map((card) => (
+                <img className="rounded-xl transition duration-700 hover:scale-105" src={card} />
+            ))}
+        </div>
+    )
 }
 
 export default RecipePosts
