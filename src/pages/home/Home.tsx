@@ -1,8 +1,8 @@
-import React from 'react'
+import RecipePosts from './RecipePosts'
 
 function Home() {
   return (
-    <div>Home</div>
+    <RecipePosts />
   )
 }
 

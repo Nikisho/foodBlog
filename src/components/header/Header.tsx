@@ -1,18 +1,19 @@
-import React from 'react'
+import MenuIcon from '@mui/icons-material/Menu';
 
 function Header() {
     return (
         <div className='h-20 0 shadow-lg flex justify-between items-center px-5 text-xl font-mono'>
             <div className='flex space-x-4'>
 
-                <button className='text-black'>&#128269;</button>
+                <button className=''>
+                    <MenuIcon />
+                </button>
                 <button>Recipes</button>
             </div>
             <a href='/'>
-                <img
-                    src='https://www.pickuplimes.com/static/images/logo/pul_logo_main_flat_987_247.9cf5ed7b1374.png'
-                    className='h-16 animate-pulse'
-                />
+                <div className='text-3xl font-bold animate-pulse text-amber-900' style={{ fontFamily: 'Brush Script MT, Brush Script Std, cursive' }}>
+                    NikosCookBook&#129369;
+                </div>
             </a>
             <div>
                 <div></div>
