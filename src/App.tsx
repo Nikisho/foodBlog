@@ -1,13 +1,24 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Header } from "./components"
-import { Home } from "./pages"
+import { About, Home } from "./pages"
 
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/about',
+      element: <About />
+    }
+  ])
 
   return (
     <div className='h-screen bg-orange-200'>
       <Header />
-      <Home />
+      <RouterProvider router={router} />
     </div>
   )
 }

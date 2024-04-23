@@ -17,7 +17,7 @@ function Header() {
             </a>
             <div>
                 <div></div>
-                <button>About</button>
+                <a href='/about'>About</a>
             </div>
 
         </div>
