@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import { Header } from "./components"
+import { Header, Menu } from "./components"
 import { About, Home } from "./pages"
+import { useState } from "react"
+import { Fade } from "@mui/material"
 
 
 function App() {
@@ -15,9 +17,15 @@ function App() {
     }
   ])
 
+  const [showMenu, setShowMenu] = useState<boolean>(false);
   return (
     <div className='h-screen bg-orange-200'>
-      <Header />
+      <Header showMenu={showMenu} setShowMenu={setShowMenu} />
+      <Fade in={showMenu}>
+        <div className="">
+          <Menu />
+        </div>
+      </Fade>
       <RouterProvider router={router} />
     </div>
   )

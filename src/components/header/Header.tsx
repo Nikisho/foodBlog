@@ -1,11 +1,27 @@
 import MenuIcon from '@mui/icons-material/Menu';
+import { Dispatch, SetStateAction } from 'react';
 
-function Header() {
+interface HeaderProps {
+    showMenu: boolean
+    setShowMenu: Dispatch<SetStateAction<boolean>>
+}
+
+
+const Header: React.FC<HeaderProps> = ({showMenu, setShowMenu}) => {
+
+    const handleClick = () => {
+        if (showMenu===true) {
+            setShowMenu(false)
+        } else if (showMenu === false) {
+            setShowMenu(true)
+        }
+    }
+
     return (
         <div className='h-20 0 shadow-lg flex justify-between items-center px-5 text-xl font-mono'>
             <div className='flex space-x-4'>
 
-                <button className=''>
+                <button className='' onClick={handleClick}>
                     <MenuIcon />
                 </button>
                 <button>Recipes</button>
