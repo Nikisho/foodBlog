@@ -1,15 +1,29 @@
-
 function Menu() {
+  const menuOptions = [
+    {
+      name: 'Home',
+      link:'/'
+    },
+    {
+      name: 'Search',
+      link:'/'
+    },
+    {
+      name: 'Restaurants',
+      link:'/'
+    },
+    {
+      name: 'About',
+      link:'/about'
+    },
+  ]
   return (
-    <div className="w-1/4 h- bg-orange-200 border border-gray-800 absolute text-xl">
-            <div className="flex justify-center items-center border-b border-gray-800 h-14  hover:bg-orange-300">option</div>
-
-      <div className="flex justify-center items-center border-b border-gray-800 h-14  hover:bg-orange-300">option</div>
-
-      <div className="flex justify-center items-center border-b border-gray-800 h-14  hover:bg-orange-300">option</div>
-
-      <div className="flex justify-center items-center border-b border-gray-800 h-14   hover:bg-orange-300">option</div>
-
+    <div className=" bg-orange-100 border border-orange-800 text-lg  rounded-r-lg ">
+      {
+        menuOptions.map((option) => (
+          <a key={menuOptions.indexOf(option)} href={option.link} className="flex items-center h-8 hover:bg-orange-300 px-4"> {option.name} </a>
+        ))
+      }
     </div>
   )
 }

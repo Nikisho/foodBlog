@@ -31,11 +31,11 @@ function RecipePosts() {
          2xl:grid-cols-6
          transition-opacity duration-1000
          h-5/6
-         overflow-y-scroll
+         overflow-y-auto
          ${opacityTImer ? 'opacity-100' : 'opacity-0'}
          `}>
             {cards?.map((card) => (
-                <div className="transition duration-700 hover:scale-105 p-6">
+                <div className="transition duration-700 hover:scale-105 p-0 xl:p-6">
                     <img className="rounded-xl" style={{ borderRadius: 10 }} src={card} />
                     <p className="font-serif text-lg px-1">
                         Coconut curry and rice

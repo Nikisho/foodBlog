@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Header, Menu } from "./components"
 import { About, Home } from "./pages"
 import { useState } from "react"
-import { Fade } from "@mui/material"
+import { Collapse, Fade } from "@mui/material"
 
 
 function App() {
@@ -19,14 +19,17 @@ function App() {
 
   const [showMenu, setShowMenu] = useState<boolean>(false);
   return (
-    <div className='h-screen bg-orange-200'>
+    <div className='h-auto bg-gradient-to-tr from-orange-200'>
       <Header showMenu={showMenu} setShowMenu={setShowMenu} />
-      <Fade in={showMenu}>
-        <div className="">
+      <div className="flex flex-col xl:flex-row">
+
+      <Collapse in={showMenu} orientation='horizontal' timeout={2000} className="">
+        <div className="w-56">
           <Menu />
         </div>
-      </Fade>
+      </Collapse>
       <RouterProvider router={router} />
+      </div>
     </div>
   )
 }
