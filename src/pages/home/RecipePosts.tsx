@@ -26,7 +26,7 @@ function RecipePosts() {
     }, []);
 
     return (
-        <div className={`w-5/6 p-5 gap-y-5 grid place-items-center
+        <div className={`xl:w-5/6 p-5 gap-y-5 grid place-items-center
          xl:grid-cols-4
          2xl:grid-cols-6
          transition-opacity duration-1000

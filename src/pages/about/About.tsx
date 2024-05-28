@@ -1,7 +1,7 @@
 
 function About() {
   return (
-    <div className="h-screen">
+    <div className="h-screen w-5/6">
       
     </div>
   )
