@@ -38,7 +38,7 @@ function RecipePosts() {
                 <a className="transition duration-700 hover:scale-105 p-0 xl:p-6" href="/recipe">
                     <img className="rounded-xl" style={{ borderRadius: 10 }} src={card} />
                     <p className="font-serif text-lg px-1">
-                        Coconut curry and rice
+                        Filo tart
                     </p>
                 </a>
             ))}
