@@ -26,7 +26,7 @@ function RecipePosts() {
     }, []);
 
     return (
-        <div className={`w-full p-5 gap-y-5 grid place-items-center
+        <div className={`w-5/6 p-5 gap-y-5 grid place-items-center
          xl:grid-cols-4
          2xl:grid-cols-6
          transition-opacity duration-1000
@@ -35,12 +35,12 @@ function RecipePosts() {
          ${opacityTImer ? 'opacity-100' : 'opacity-0'}
          `}>
             {cards?.map((card) => (
-                <div className="transition duration-700 hover:scale-105 p-0 xl:p-6">
+                <a className="transition duration-700 hover:scale-105 p-0 xl:p-6" href="/recipe">
                     <img className="rounded-xl" style={{ borderRadius: 10 }} src={card} />
                     <p className="font-serif text-lg px-1">
                         Coconut curry and rice
                     </p>
-                </div>
+                </a>
             ))}
         </div>
     )

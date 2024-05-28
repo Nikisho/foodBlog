@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Header, Menu } from "./components"
-import { About, Home } from "./pages"
+import { About, Home, Recipe } from "./pages"
 import { useState } from "react"
-import { Collapse, Fade } from "@mui/material"
+import { Collapse } from "@mui/material"
 
 
 function App() {
@@ -15,15 +15,20 @@ function App() {
       path: '/about',
       element: <About />
     }
+    ,
+    {
+      path: '/recipe',
+      element: <Recipe />
+    }
   ])
 
   const [showMenu, setShowMenu] = useState<boolean>(false);
   return (
     <div className='h-auto bg-gradient-to-tr from-orange-200'>
       <Header showMenu={showMenu} setShowMenu={setShowMenu} />
-      <div className="flex flex-col xl:flex-row">
+      <div className="flex flex-col xl:flex-row w-auto justify-center">
 
-      <Collapse in={showMenu} orientation='horizontal' timeout={2000} className="">
+      <Collapse in={showMenu} orientation='horizontal' timeout={400} className="">
         <div className="w-56">
           <Menu />
         </div>
