@@ -13,7 +13,33 @@ function Recipe() {
     imageUrl: 'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',
     prepTime: 45,
     serves: 4,
-    difficulty: 'Intermediate'
+    difficulty: 'Intermediate',
+    ingredients: [
+      {
+        name: 'Tray bake',
+        subIngrediants: [
+          '3 medium sweet potatoes, cut into 1 cm cubes',
+          '1 medium red onion, sliced',
+          '4 cloves garlic, peel left on'
+        ]
+      },
+      {
+        name: 'Tray bake',
+        subIngrediants: [
+          '3 medium sweet potatoes, cut into 1 cm cubes',
+          '1 medium red onion, sliced',
+          '4 cloves garlic, peel left on'
+        ]
+      },
+      {
+        name: 'Tray bake',
+        subIngrediants: [
+          '3 medium sweet potatoes, cut into 1 cm cubes',
+          '1 medium red onion, sliced',
+          '4 cloves garlic, peel left on'
+        ]
+      }
+    ]
   }
 
   return (
@@ -64,9 +90,25 @@ function Recipe() {
 
       {/* Ingredients */}
 
-      <div>
+      <div className='space-y-5'>
         <p className='text-4xl font-semibold'>Ingredients</p>
-        
+
+        {
+          data.ingredients.map((ingredient) => (
+            <div>
+              <p className='text-xl font-semibold'>{ingredient.name}</p>
+              <ul className='list-disc list-inside indent-5'>
+                {ingredient.subIngrediants.map((subingredient) => (
+                  <li key={data.ingredients.indexOf(ingredient)} className=''>
+                  { subingredient }
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+          ))
+        }
+
       </div>
 
       {/* Method */}
