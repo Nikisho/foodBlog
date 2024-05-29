@@ -31,7 +31,7 @@ function Menu() {
     <div className=" bg-orange-200 text-lg  rounded-r-lg ">
       {
         menuOptions.map((option) => (
-          <div className='flex items-center h-14 border border-gray-300 hover:bg-orange-300 px-4 space-x-5'>
+          <div key={menuOptions.indexOf(option)} className='flex items-center h-14 border border-gray-300 hover:bg-orange-300 px-4 space-x-5'>
             {option.icon}
             <a key={menuOptions.indexOf(option)} href={option.link} className=" "> {option.name} </a>
           </div>

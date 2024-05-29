@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 function RecipePosts() {
-    const cards: string[] = [
-        'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',
-        'https://cdn.pickuplimes.com/cache/27/e0/27e0bfb15307055938ff0d8fcea00068.jpg',
-        'https://cdn.pickuplimes.com/cache/ac/bf/acbfed5589d3a3b96884a491687566f7.jpg',
-        'https://cdn.pickuplimes.com/cache/21/18/211886ca12104607a8c71a3bcef87960.jpg',
-        'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',
-        'https://cdn.pickuplimes.com/cache/27/e0/27e0bfb15307055938ff0d8fcea00068.jpg',
-        'https://cdn.pickuplimes.com/cache/ac/bf/acbfed5589d3a3b96884a491687566f7.jpg',
-        'https://cdn.pickuplimes.com/cache/21/18/211886ca12104607a8c71a3bcef87960.jpg',
+    const cards = [
+        {link:'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',id: 1},
+        {link:'https://cdn.pickuplimes.com/cache/27/e0/27e0bfb15307055938ff0d8fcea00068.jpg',id: 2},
+        {link:'https://cdn.pickuplimes.com/cache/ac/bf/acbfed5589d3a3b96884a491687566f7.jpg',id: 3},
+        {link:'https://cdn.pickuplimes.com/cache/21/18/211886ca12104607a8c71a3bcef87960.jpg',id: 4},
+        {link:'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',id: 5},
+        {link:'https://cdn.pickuplimes.com/cache/27/e0/27e0bfb15307055938ff0d8fcea00068.jpg',id: 6},
+        {link:'https://cdn.pickuplimes.com/cache/ac/bf/acbfed5589d3a3b96884a491687566f7.jpg',id: 7},
+        {link:'https://cdn.pickuplimes.com/cache/21/18/211886ca12104607a8c71a3bcef87960.jpg',id: 8},
 
     ];
 
@@ -35,8 +35,8 @@ function RecipePosts() {
          ${opacityTImer ? 'opacity-100' : 'opacity-0'}
          `}>
             {cards?.map((card) => (
-                <a className="transition duration-700 hover:scale-105 p-0 xl:p-6" href="/recipe">
-                    <img className="rounded-xl" style={{ borderRadius: 10 }} src={card} />
+                <a className="transition duration-700 hover:scale-105 p-0 xl:p-6" href={`/recipe/${card.id}`}>
+                    <img className="rounded-xl" style={{ borderRadius: 10 }} src={card.link} />
                     <p className="font-serif text-lg px-1">
                         Filo tart
                     </p>

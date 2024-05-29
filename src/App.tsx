@@ -17,7 +17,7 @@ function App() {
     }
     ,
     {
-      path: '/recipe',
+      path: '/recipe/:id',
       element: <Recipe />
     }
   ])
