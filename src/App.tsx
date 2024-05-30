@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Header, Menu } from "./components"
-import { About, Home, Recipe } from "./pages"
+import { About, Home, Recipe, Submit } from "./pages"
 import { useState } from "react"
 import { Collapse } from "@mui/material"
 
@@ -19,6 +19,10 @@ function App() {
     {
       path: '/recipe/:id',
       element: <Recipe />
+    },
+    {
+      path: '/submit',
+      element: <Submit />
     }
   ])
 

@@ -19,7 +19,7 @@ function Recipe() {
     featuring a rich filling of eggs, cream, and lardons (bacon) in a buttery pastry crust",
     imageUrl: 'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',
     prepTime: 45,
-    serves: 4,
+    servingSize: 4,
     difficulty: 'Intermediate',
     ingredients: [
       {
@@ -77,7 +77,7 @@ function Recipe() {
               <PeopleIcon
                 fontSize='large'
               />
-              <p className=''>{data.serves} People</p>
+              <p className=''>{data.servingSize} People</p>
             </div>
             <div className=" shadow-lg bg-amber-300 p-3 w-1/3 flex flex-col rounded-xl justify-center items-center">
               <AssessmentIcon
