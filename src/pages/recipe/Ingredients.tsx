@@ -9,7 +9,7 @@ interface IngredientsProps {
 
 const Ingredients: React.FC<IngredientsProps> =  ({ingredients}) => {
     return (
-        <div className='space-y-5 mt-5'>
+        <div className='space-y-5 mt-5 '>
             <p className='text-4xl font-semibold'>Ingredients</p>
             {
                ingredients.map((ingredient) => (

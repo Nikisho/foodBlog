@@ -4,7 +4,7 @@ import { About, Home, Recipe, Submit } from "./pages"
 import { useState } from "react"
 import { Collapse } from "@mui/material"
 
-
+//reduce image size and bring intro down, change font on cards to black
 function App() {
   const router = createBrowserRouter([
     {
