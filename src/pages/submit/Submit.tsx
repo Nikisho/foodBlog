@@ -17,42 +17,90 @@ interface dataProps {
 
 const Submit = () => {
 	const [data, setData] = useState<dataProps>();
-	console.log(data?.title)
+	console.log(data)
 
-	const handleInputChange = (event: any) => {
-        setData((prevState: any) => {
-			return({
-				...prevState,
-				title: event.target.value
-			})
-		});
-    };
+	const handleChange = (e: any) => {
+		const { name, value } = e.target;
+
+		setData((prevData: any) => ({
+			...prevData,
+			[name]: value
+		}));
+	};
+
+	function handleClick(e: React.MouseEvent, difficulty: string) {
+		e.preventDefault();
+		setData((prevData: any) => ({
+			...prevData,
+			difficulty: difficulty
+		}));	};
 	const handleSubmit = async () => {
 
 	}
 
 	return (
-		<div className='space-y-5 justify-start h-screen w-full p-5'>
+		<div className='space-y-5 h-screen w-full lg:w-1/2 p-5 shadow-lg '>
 			<p className='text-3xl  font-semibold'>Recipe Details</p>
 
 
 			<div>
 				<p className='font-semibold text-lg'>Title</p>
-				<input className=' h-10 w-full xl:w-1/4  border-1 border-gray-400 p-4 rounded-lg'
+				<input className=' h-10 w-full border-1 border-gray-400 p-4 rounded-lg'
 					placeholder='Example: Jacket Potatoes'
 					value={data?.title}
-					onChange={handleInputChange}
+					name='title'
+					onChange={handleChange}
 				>
 				</input>
 			</div>
 			<div>
 				<p className='font-semibold text-lg'>Description</p>
-				<textarea className=' h-32 w-full xl:w-1/4  border-1 border-gray-400 p-4 rounded-lg'
+				<textarea className=' h-32 w-full  border-1 border-gray-400 p-4 rounded-lg'
 					placeholder='Example: Jacket Potatoes'
-					value={data?.title}
-					onChange={handleInputChange}
+					value={data?.description}
+					name='description'
+					onChange={handleChange}
 				>
 				</textarea>
+			</div>
+
+			<div className='flex flex-col md:flex-col space-y-4'>
+				<div className=' flex w-1/2 rounded-xl shadow-lg bg-yellow-200 p-3 space-x-1'>
+					<input type='number' className='w-1/3  px-3 bg-yellow-200' 
+						value={data?.prepTime}
+						name='prepTime'
+					onChange={handleChange}
+					/>
+					
+					<p className=''>Min</p>
+				</div>
+				<div className=' flex w-1/2 rounded-xl shadow-lg bg-yellow-200 p-3 space-x-1'>
+					<input type='number' max={10} className='w-1/3  px-3 bg-yellow-200' 
+						value={data?.servingSize}
+						name='servingSize'
+						onChange={handleChange}
+					/>
+					<p className=''>People</p>
+				</div>
+				<div className=' flex w-full justify-between space-x-1'>
+					<button 
+						name='difficulty' className={`w-1/3 rounded-xl shadow-lg p-2 hover:scale-95 transition duration-700 ${data?.difficulty === 'beginner'? 'bg-yellow-500': 'bg-yellow-200'}`}
+						onClick={(e)=> handleClick(e, 'beginner')}
+						>
+						Beginner
+					</button>
+					<button name='difficulty'  className={`w-1/3 rounded-xl shadow-lg p-2 hover:scale-95 transition duration-700 ${data?.difficulty === 'intermediate'? 'bg-yellow-500': 'bg-yellow-200'}`}
+						onClick={(e)=> handleClick(e, 'intermediate')}
+					
+					>
+						<p>Intermediate</p>
+					</button>
+					<button name='difficulty'  className={`w-1/3 rounded-xl shadow-lg p-2 hover:scale-95 transition duration-700 ${data?.difficulty === 'advanced'? 'bg-yellow-500': 'bg-yellow-200'}`}
+						onClick={(e)=> handleClick(e, 'advanced')}
+						>
+						<p>Advanced</p>
+					</button>
+				</div>
 			</div>
 		</div>
 	)
