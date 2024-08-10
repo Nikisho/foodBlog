@@ -1,18 +1,17 @@
+import { collection, getDocs} from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { db } from "../../../firebase";
 
 function RecipePosts() {
-    const cards = [
-        {link:'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',id: 1},
-        {link:'https://cdn.pickuplimes.com/cache/27/e0/27e0bfb15307055938ff0d8fcea00068.jpg',id: 2},
-        {link:'https://cdn.pickuplimes.com/cache/ac/bf/acbfed5589d3a3b96884a491687566f7.jpg',id: 3},
-        {link:'https://cdn.pickuplimes.com/cache/21/18/211886ca12104607a8c71a3bcef87960.jpg',id: 4},
-        {link:'https://cdn.pickuplimes.com/cache/6c/6c/6c6ce42cc549d2cb368e59424388cf36.jpg',id: 5},
-        {link:'https://cdn.pickuplimes.com/cache/27/e0/27e0bfb15307055938ff0d8fcea00068.jpg',id: 6},
-        {link:'https://cdn.pickuplimes.com/cache/ac/bf/acbfed5589d3a3b96884a491687566f7.jpg',id: 7},
-        {link:'https://cdn.pickuplimes.com/cache/21/18/211886ca12104607a8c71a3bcef87960.jpg',id: 8},
-
-    ];
-
+    const [recipes, setRecipes] = useState<any>([]);
+    const fetchRecipes = async () => {
+        const querySnapshot = await getDocs(collection(db, "recipes"));
+        const recipesList = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        setRecipes(recipesList);
+    }
     const [opacityTImer, setOpacityTimer] = useState<boolean>(false);
     const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
@@ -20,9 +19,10 @@ function RecipePosts() {
         await delay(500);
         setOpacityTimer(true)
     };
-
+    console.log(recipes)
     useEffect(() => {
-        changeOpactity()
+        changeOpactity();
+        fetchRecipes();
     }, []);
 
     return (
@@ -34,11 +34,11 @@ function RecipePosts() {
          overflow-y-auto
          ${opacityTImer ? 'opacity-100' : 'opacity-0'}
          `}>
-            {cards?.map((card) => (
-                <a className="transition duration-700 hover:scale-105 p-0 xl:p-6" href={`/recipe/${card.id}`}>
-                    <img className="rounded-xl" style={{ borderRadius: 10 }} src={card.link} />
+            {recipes?.map((recipe: any) => (
+                <a className="transition duration-700 hover:scale-105 p-0 xl:p-6" href={`/recipe/${recipe.id}`}>
+                    <img className="rounded-xl lg:w-52" style={{ borderRadius: 10, objectFit:"fill" }} src={recipe.imageUrl} />
                     <p className="font-serif text-lg px-1">
-                        Filo tart
+                        {recipe.title}
                     </p>
                 </a>
             ))}

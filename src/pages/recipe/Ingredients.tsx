@@ -1,31 +1,26 @@
 import React from 'react'
 
 interface IngredientsProps {
-    ingredients: {
-        name: String
-        subIngredients: Array<string>
-    }[]
+    ingredients: string[]
 }
 
-const Ingredients: React.FC<IngredientsProps> =  ({ingredients}) => {
+const Ingredients: React.FC<IngredientsProps> = ({ ingredients }) => {
     return (
         <div className='space-y-5 mt-5 '>
             <p className='text-4xl font-semibold'>Ingredients</p>
+            <ul className='list-disc list-inside indent-5 '>
             {
-               ingredients.map((ingredient) => (
+                ingredients.map((ingredient) => (
                     <div key={ingredients.indexOf(ingredient)}>
-                        <p className='text-xl font-semibold'>{ingredient.name}</p>
-                        <ul className='list-disc list-inside indent-5 '>
-                            {ingredient.subIngredients.map((subingredient) => (
-                                <li>
-                                    {subingredient}
-                                </li>
-                            ))}
-                        </ul>
+                        <li>
+                            {ingredient}
+                        </li>
                     </div>
                 ))
             }
-        </div>
+        </ul>
+
+        </div >
     )
 }
 
