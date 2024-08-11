@@ -29,7 +29,7 @@ function Recipe() {
     <>
     {
       recipeData && (
-        <div className="h-auto xl:w-4/5 p-5 mt-4  ">
+        <div className="h-auto xl:w-4/5 p-5 mt-4">
         {/* Title and Image with recipe intro*/}
         <div className="h-full flex xl:space-x-5 flex-col xl:flex-row space-y-5 xl:space-y-0 justify-center">
           <div className="w-full xl:w-2/3 2xl:w-1/3 space-y-10 ">

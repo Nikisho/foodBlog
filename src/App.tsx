@@ -28,7 +28,7 @@ function App() {
 
   const [showMenu, setShowMenu] = useState<boolean>(false);
   return (
-    <div className='h-auto bg-gradient-to-tr from-orange-200 transtion duration-700'>
+    <div className='min-h-screen bg-gradient-to-tr from-orange-200 transtion duration-700'>
       <Header showMenu={showMenu} setShowMenu={setShowMenu} />
       <div className="flex flex-col xl:flex-row w-auto justify-center items-center xl:items-start">
 
